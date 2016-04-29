@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <title>Socket.IO Workshop</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+  <div class="wrapper full-screen">
+    <div class="header">
+      <button class="back btn btn-danger" type="button">Back to the lobby</button>
+      <h2 class="title"></h2>
+      <span class="state">
+        Online Players:
+        <span class="num-users"></span>
+      </span>
+    </div>
+    <ul class="pages">
+      <li class="login page">
+        <form>
+          <h3 class="title">What's your nickname?</h3>
+          <input class="username" type="text" maxlength="14" />
+        </form>
+      </li>
+      <li class="lobby page">
+        <div class="chat">
+          <ul class="messages"></ul>
+          <form>
+            <input class="message" autocomplete="off"/>
+          </form>
+        </div>
+        <div class="sidebar">
+          <button class="new-room btn btn-info" type="button">Create your own game</button>
+          <ul class="rooms"></ul>
+        </div>
+      </li>
+      <li class="room page">
+        <div class="chat">
+          <ul class="messages"></ul>
+          <form>
+            <input class="message" autocomplete="off"/>
+          </form>
+        </div>
+        <div class="sidebar">
+          <button class="start-game btn btn-info" type="button" disabled>Start the game!</button>
+          <ul class="users"></ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script type="text/html" id="template-message">
+    <li class="message">
+      <span class="username"></span>
+      <span class="body"></span>
+    </li>
+  </script>
+  <script type="text/html" id="template-log">
+    <li class="log"></li>
+  </script>
+  <script type="text/html" id="template-room">
+    <li class="room" data-id="">
+      <span class="roomname"></span>
+      <span class="badge num-users"></span>
+    </li>
+  </script>
+  <script type="text/html" id="template-user">
+    <li class="user" data-id="">
+      <span class="username"></span>
+    </li>
+  </script>
+  <script type="text/html" id="template-game">
+    <div class="hud">
+      <span id="health"></span>
+      <span id="points"></span>
+      <div id="hurt-overlay"></div>
+      <div id="all-points"></div>
+    </div>
+    <div id="game">
+      <div id="a"><img id="b" height="60" width="60" alt="Loading..." src="lib/game/assets/misc/loading.gif"></div>
+    </div>
+  </script>
+  <script type="text/html" id="template-all-points">
+    <li class="player">
+      <span class="username"></span>
+      <span class="points"></span>
+    </li>
+  </script>
+
+
+  <script src="/bundle.js"></script>
+</body>
+</html>
